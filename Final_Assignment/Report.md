@@ -1,6 +1,6 @@
 # Apartment house for seniors in Prague
 This is a project for Coursera Applied Data Science Capstone course. It show's my personal ideas about problem that I selected to try to solve. The file contains several parts:
-  - [Introduction/Business Problem](#Introduction-Business-Problem)
+  - [Introduction/Business Problem](#Introduction/Business-Problem)
   - [Data](#Data)
   
 ## Introduction/Business Problem
