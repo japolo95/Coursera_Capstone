@@ -25,10 +25,10 @@ Selected parameters, and their datasources are following:
 
 Description | Ideal value | data source | details
 --- | --- | --- | ---
-Number of foodstores in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer.
+Number of foodstores in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given area.*
 Number of health facilites (such as pharmacies, hospitals,...) in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given area.*
 Number of social venues that may produce noise (such as hotels or bars,...) in district per square kilometer | Lower is better | Foursquare | Foursquare can return venues in given area.*
-Number of public transport venues (such as bus stops, subway stations,...) in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer.
+Number of public transport venues (such as bus stops, subway stations,...) in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given area.*
 Percentage of land that is covered by nature (parks, forests,...) in each district | Higher is better | OpenStreetMaps | OpenStreetMaps can provide data about land usage for given area.**
 Percentage of land that is covered by industrials zones in each district | Lower is better | OpenStreetMaps | OpenStreetMaps can provide data about land usage for given area.**
 Percentage of land that is covered by commercial zones in each district | Lower is better | OpenStreetMaps | OpenStreetMaps can provide data about land usage for given area.**
