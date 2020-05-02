@@ -2,6 +2,7 @@
 This is a project for Coursera Applied Data Science Capstone course. It show's my personal ideas about problem that I selected to try to solve. The file contains several parts:
   - [Introduction/Business Problem](#intro)
   - [Data](#Data)
+  - [Methodology](#Methodology)
 
 <h2 id="intro">Introduction/Business Problem </h2>
 Problem that I am trying to solve, is to determine which districts of given city (I selected Prague, in CZ) are most suitable for real estate development copmany, that wants to plan and build apartment house for seniors.
@@ -37,3 +38,23 @@ Population density per square kilometer | Lower is better | Wikipedia | [link](h
 _*Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer._
 _**OpenStreetMaps (OSM) can return small nodes, that defines small polygons of different land usages in given bounding box, however, shape of district may be also polygon. Data that will be outside of this polygon have to be removed. Also, size of polygons of all landusage will be calculated, and then converted to percentage of whole district area._
 
+## Methodology
+Methodology was splitted into two parts: Processing data to format that we want, and clustering districts according to each given parameter.
+
+__For the first part__, there was three data sources: Wikipedia, OpenStreetMap, and Foursquare.
+
+From Wikipedia, we could obtain a list of districts in Prague, from [this link](https://cs.wikipedia.org/wiki/Seznam_katastr%C3%A1ln%C3%ADch_%C3%BAzem%C3%AD_v_Praze). We parsed it using pandas and we also used information about population density in each district, instead of just using district's name.
+
+From OpenStreetMaps, we got list of points that defines each district's shape on map. We also used OSM for getting information about different land usages in each district. Because it is not possible to query OSM directly for land usage in given polygon, only in given rectangle, we used bounding box of each district, and when we recieved data from OSM, we used [Shapely](https://shapely.readthedocs.io/en/latest/manual.html) library, which has function for determining whether point is inside given polygon. Using this function, we analyzed land usage only in district polygon, not in whole bounding box. Then, we used [Shoelace algorithm](https://en.wikipedia.org/wiki/Shoelace_formula) to get size of each land usage type in each district and also size of whole district. Finally, we converted these values to percentages, so that we had information _how many % of land in each district was covered by different types of zones, like parks, industry, or commercial zones_.
+
+From Foursquare, we were able to get number of venues in given rectanlge on map, however, for our purposes, we needed to limit results only to venues inside district polygon, because a district is usually not just rectangle on map, but more complicated polygon. We used  [Shapely](https://shapely.readthedocs.io/en/latest/manual.html), just the same way as in OpenStreetMaps case, to keep only venues that are inside each district's polygon. Then we converted numbers of venues to their density per square kilometer, in each district.
+
+__For the second part__, I decided to cluster districts multiple times, each time by different criteria. The criteria were:
+  - average number of foodstores in each district per square kilometer
+  - average number of health venues (such as hospitals, pharmacies) in each district per square kilometer
+  - average number of social venues that produce noise, such as bars or hotels, in each district per square kilometer.
+  - average number of public transport venues, such as bus or tram stops in each district, per square kilometer.
+  - percentage of each district area covered by nature like forests, parks, or public available gardens.
+  - percentage of each district area covered by industrial zones
+  - percentage of each district area covered by commercial zones
+  - population density in each district per square kilometer
