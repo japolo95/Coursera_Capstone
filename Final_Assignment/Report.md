@@ -1,9 +1,9 @@
 # Apartment house for seniors in Prague
 This is a project for Coursera Applied Data Science Capstone course. It show's my personal ideas about problem that I selected to try to solve. The file contains several parts:
-  - [Introduction/Business Problem](#Introduction/Business-Problem)
+  - [Introduction/Business Problem](#intro)
   - [Data](#Data)
-  
-## Introduction/Business Problem
+
+<h2 id="intro">Introduction/Business Problem </h2>
 Problem that I am trying to solve, is to determine which districts of given city (I selected Prague, in CZ) are most suitable for real estate development copmany, that wants to plan and build apartment house for seniors.
 
 The answer to question how this can be interesting for such company is obvious: Average age in local population is increasing, and also wealth of individuals. Especially elderly people have more money to spend and they are very reliable target group. If real estate development company sells or rent new apartments to seniors, it is clear that they will be very good renters, especially in compare with students or other young people - these did not have time to cumulate money during their lifes, and their lifes are more unstable in general.
