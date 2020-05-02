@@ -15,23 +15,25 @@ For figuring out solution for this problem, we will do multiple clustering of di
 __Foursquare__ data are especially important in this case, because they can help us to cluster city districts, according to numbers or density of different types of venues. If we want to cluster districts according to multiple different parameters, we must know which parameters are important for us. In our case, Foursquare can provide us data for parameters such as number of stores, pharmacies, or accessibility of district by public transport.
 
 ## Data
-Recall that purpose of the project is to determine which districts in the city (Prague) are most suitable for real estate development company, that wants to build apartment house for seniors, and then sell or rent individual apartments. Because of this fact, we will be interested in several parameters, that may be interesting for target clients/buyers/renters (elderly people/seniors).
+Firstly, we need list of districts in Prague. This list will be obtained from following link (it's written in czech, because on english Wikipedia there is not enough information, but in final notebook, header will be translated to EN): https://cs.wikipedia.org/wiki/Seznam_katastr%C3%A1ln%C3%ADch_%C3%BAzem%C3%AD_v_Praze
+
+Secondly, we will need information about each district location and shape, for that we will use OpenStreetMaps, that will give us exact polygon on map, that defines given district.
+
+Finally, recall that purpose of the project is to determine which districts in the city (Prague) are most suitable for real estate development company, that wants to build apartment house for seniors, and then sell or rent individual apartments. Because of this fact, we will be interested in several parameters, that may be interesting for target clients/buyers/renters (elderly people/seniors).
 
 Selected parameters, and their datasources are following:
 
-Description | Ideal value | data source | data processing
+Description | Ideal value | data source | details
 --- | --- | --- | ---
 Number of foodstores in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer.
-Number of health facilites (such as pharmacies, hospitals,...) in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer.
-Number of social venues that may produce noise (such as hotels or bars,...) in district per square kilometer | Lower is better | Foursquare | Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer.
+Number of health facilites (such as pharmacies, hospitals,...) in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given area.*
+Number of social venues that may produce noise (such as hotels or bars,...) in district per square kilometer | Lower is better | Foursquare | Foursquare can return venues in given area.*
 Number of public transport venues (such as bus stops, subway stations,...) in district per square kilometer | Higher is better | Foursquare | Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer.
+Percentage of land that is covered by nature (parks, forests,...) in each district | Higher is better | OpenStreetMaps | OpenStreetMaps can provide data about land usage for given area.**
+Percentage of land that is covered by industrials zones in each district | Lower is better | OpenStreetMaps | OpenStreetMaps can provide data about land usage for given area.**
+Percentage of land that is covered by commercial zones in each district | Lower is better | OpenStreetMaps | OpenStreetMaps can provide data about land usage for given area.**
+Population density per square kilometer | Lower is better | Wikipedia | https://cs.wikipedia.org/wiki/Seznam_katastr%C3%A1ln%C3%ADch_%C3%BAzem%C3%AD_v_Praze (in czech, but in notebook I will translate header to english)
 
-  - How much is the district good for relaxation? Usually elderly people prefers calm and clean environment
-     - What is the size of nature areas (forests, parks,...) available to public in the district? (available on OpenStreetMaps)
-     - How many clubs, bars and hotels are in the district? These places usually attract people who wants to enjoy their free time, so there could be problems with noise and some conflicts in streets, parks, and so on. This data is also available on Foursquare.
-     - Also what is the population density - more people means usually more noise. This is available on Wikipedia
-     - Sometimes there can be lot of industrial areas that may be also noisy. This is available in OpenStreetMaps
- - How much is the district suitable in terms of public services? For elderly people it's especially important to have everything they need in their district.
-     - How many hospitals, pharmacies, and clinics are in the district? (available on Foursquare)
-     - How many stores and supermarkets are in the district? (available on Foursquare)
-     - Is there any public transport (tram or subway) station? (available on Foursquare)
+_*Foursquare can return venues in given bounding box, however, shape of district may be polygon. Data that will be outside of this polygon have to be removed. Also, absolute number of venues has to be recalculated to average value per kilometer._
+_**OpenStreetMaps (OSM) can return small nodes, that defines small polygons of different land usages in given bounding box, however, shape of district may be also polygon. Data that will be outside of this polygon have to be removed. Also, size of polygons of all landusage will be calculated, and then converted to percentage of whole district area._
+
