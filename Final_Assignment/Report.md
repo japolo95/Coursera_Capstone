@@ -58,3 +58,9 @@ __For the second part__, I decided to cluster districts multiple times, each tim
   - percentage of each district area covered by industrial zones
   - percentage of each district area covered by commercial zones
   - population density in each district per square kilometer
+  
+Note that districts were not clustered by all these criteria together, instead I tried to group them by each criteria separatedly. I also tried to do clustering for multiple or all criteria together, but that brought much worse results, as there are only 112 districts in Prague.
+
+Instead I firstly clustered by each criteria separatedly. For own clustering, I used [Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and for determining ideal number of clusters for each criteria, I used [Silhouette Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), where several possible numbers of clusters were tried, and the one with best Silhouette score was used (this could be different for each criteria).
+
+Then I took best clusters of each criteria (what _best_ means is defined in [Data section](#Data) of this report and tried to find the intersection of it, in other worse, tried to find districts, that are always in the best cluster for all the criteria. Unfortunately (but as expected) there was no such district, so I had to create custom function, that accepts even some worse clusters for some of the criteria and then tries to find intersecting districts. This also includes possibilty to prioritize some criteria, so that we could for example tell the function, that criteria A is more important than criteria B. The function took that into account and accepted some worse clusters for all the criteria, but prioritizing the A criteria over B (that means, trying to first find intersection using worse clusters from B, than from A).
