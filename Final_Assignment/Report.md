@@ -63,4 +63,19 @@ Note that districts were not clustered by all these criteria together, instead I
 
 Instead I firstly clustered by each criteria separatedly. For own clustering, I used [Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and for determining ideal number of clusters for each criteria, I used [Silhouette Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), where several possible numbers of clusters were tried, and the one with best Silhouette score was used (this could be different for each criteria).
 
-Then I took best clusters of each criteria (what _best_ means is defined in [Data section](#Data) of this report and tried to find the intersection of it, in other words, tried to find districts, that are in the best cluster for all the criteria. Unfortunately (but as expected) there was no such district, so I had to create custom function, that accepts even some worse clusters for some of the criteria and then tries to find intersecting districts. This also includes possibilty to prioritize some criteria, so that we could for example tell the function, that criteria A is more important than criteria B. The function took that into account and accepted some worse clusters for all the criteria, but prioritizing the A criteria over B (that means, trying to first find intersection using worse clusters from B, than from A).
+Then I took best clusters of each criteria (what _best_ means is defined in [Data section](#Data) of this report and tried to find the intersection of it, in other words, tried to find districts, that are in the best cluster for all the criteria. Unfortunately (but as expected) there was no such district.
+
+In that situation, we could simply say that also districts in _worse_ clusters are accepted, however, as some criteria are more important than other, I decided to create a function, which objective will be to find intersection of districts, that are in best possible clusters where this intersection exists, taking into account that some features are more important than others. 
+
+For example tell the function, that criteria A is more important than criteria B. The function took that into account and accepted some worse clusters for all the criteria, while prioritizing the A criteria over B (that means, trying to first find intersection using worse clusters from B, than from A).
+
+The function uses following formula: `f(x,t) = (min(x/10,1))*t` where _x_ is priority, _t_ is tolerance level, and function output is ratio of allowed clusters. Example: we have feature C with priority 3, and we set tolerance to 0.75. The function result is `min(3/10,1)*0.75 = 0.225 = 22.5%`. This means that for feature C we accept roughly 22.5% of clusters (sorted from best to worst). If there would be 10 clusters we would accept 2 best clusters. The `min` function in formula is used just to ensure that we don't allow more than 100% of clusters, which indeed is not possible.
+
+I decided to set priorities (_x_ value in the formula) for each feature as following:
+  1. nature area, nightlife, industry area - these affect quality of life all the time and most directly (general look of the district,  air and sound pollution)
+  2. foodstores, health, transport, citiziens/km2 - these also affect quality of life, but not all the time, except the citiziens/km2, but for that it is still only required not to be extreme (like city center)
+  3. commercial area - this is only nice to have, but really not critical
+  
+Using this function, I was able to get some reasonable result.
+
+## Results
