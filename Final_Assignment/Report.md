@@ -67,10 +67,16 @@ __For the second part__, I decided to cluster districts multiple times, each tim
   - percentage of each district area covered by commercial zones
   - population density in each district per square kilometer
 
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_dataset_example.jpg "Screen of final, preprocessed dataset, loaded in Pandas DataFrame. Note that nightlife, foodstores, health, and transport, shows number of corresponding venues per square kilometer in given district")
+_Screen of final, preprocessed dataset, loaded in Pandas DataFrame. Note that nightlife, foodstores, health, and transport, shows number of corresponding venues per square kilometer in given district_
+
 #### Clustering
 Note that districts were not clustered by all these criteria together, instead I tried to group them by each criteria separatedly. I also tried to do clustering for multiple or all criteria together, but that brought much worse results, as there are only 112 districts in Prague.
 
-Instead I firstly clustered by each criteria separatedly. For own clustering, I used [Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and for determining ideal number of clusters for each criteria, I used [Silhouette Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), where several possible numbers of clusters were tried, and the one with best Silhouette score was used (this could be different for each criteria).
+Instead I firstly clustered by each criteria separatedly. For own clustering, I used [Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and for determining ideal number of clusters for each criteria, I used [Silhouette Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), where several possible numbers of clusters were tried, and the one with best Silhouette score was used (this could be different for each criteria). Results of clustering is visualized by boxplots in image below.
+
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/boxplots_all.jpg "Boxplots of values distributions in each cluster for each feature")
+_Boxplots of values distributions in each cluster for each feature_
 
 Then I took best clusters of each criteria (what _best_ means is defined in [Data section](#Data) of this report and tried to find the intersection of it, in other words, tried to find districts, that are in the best cluster for all the criteria. Unfortunately (but as expected) there was no such district.
 
@@ -86,7 +92,13 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   2. foodstores, health, transport, citiziens/km2 - these also affect quality of life, but not all the time, except the citiziens/km2, but for that it is still only required not to be extreme (like city center)
   3. commercial area - this is only nice to have, but really not critical
   
-Using this function, I was able to get some reasonable result.
+Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
+
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
+_Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
+
+Note that for some for criteria commercial_a (commercial area), we accepted districts from all clusters. This parameter has low priority as mentioned above. On the other hand, for criteria with high priority, such as nightlife (number of nightlife venues per square kilometer), nature_a (nature area), we searched for districts only in much fewer clusters (in other words, worse clusters were not accepted).
+
 
 ## Results
 During whole process, several sub-results and results were generated. In this section, I will show and describe all of them.
