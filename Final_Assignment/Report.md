@@ -93,11 +93,8 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   3. commercial area - this is only nice to have, but really not critical
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
-
-<p align="center">
-<img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed"></p><i>
-Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed</i>
-
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters_borders.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
+_Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
 Note that for some for criteria commercial_a (commercial area), we accepted districts from all clusters. This parameter has low priority as mentioned above. On the other hand, for criteria with high priority, such as nightlife (number of nightlife venues per square kilometer), nature_a (nature area), we searched for districts only in much fewer clusters (in other words, worse clusters were not accepted).
 
@@ -120,7 +117,8 @@ _percentage of whole district area_
 _count per square kilometer_
 
 These districts are also shown in map in following image:
-<p align="center"><img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map.jpg" alt="Districts selected by finding best possible intersection"></p>        
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map_border.jpg "Districts selected by finding best possible intersection")
+_Districts selected by finding best possible intersection_       
 
 _Best district that were found according to given criteria_
           
