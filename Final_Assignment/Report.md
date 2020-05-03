@@ -96,13 +96,12 @@ Using this function, I was able to get some reasonable result. Accepted clusters
 
 <p align="center">
 <img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed"></p>
-
 _Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
 Note that for some for criteria commercial_a (commercial area), we accepted districts from all clusters. This parameter has low priority as mentioned above. On the other hand, for criteria with high priority, such as nightlife (number of nightlife venues per square kilometer), nature_a (nature area), we searched for districts only in much fewer clusters (in other words, worse clusters were not accepted).
 
 ## Results
-Finally, using methods in chapter above, we got intersection of districts from as good as possible clusters. __9 district, that would be best for building new apartment house for seniors according to given criteria, were retrieved.__ The selected districts are in following table, where also their values for different criteria are shown.
+Finally, using methods in chapter above, we got best districts according to given criteria, by finding best possible intersection of clusters of several criteria. __9 district, that would be best for building new apartment house for seniors according to given criteria, were retrieved.__ The selected districts are in following table, where also their values for different criteria are shown.
 
 district	| nature_a	| industry_a	| nightlife	| foodstores | health	| transport	| commercial_a	| citiziens/km2
 --- | --- | --- | --- | --- | --- | --- | --- | ---
@@ -117,8 +116,9 @@ Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
 Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 
 These districts are also shown in map in following image:
-https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map.jpg
-
+<p align='center"><img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map.jpg" alt="Districts selected by finding best possible intersection"></p>
+_Best district that were found according to given criteria_
+          
 ### Selected vs unselected districts
 Also, I did a visual comparsion o
 
