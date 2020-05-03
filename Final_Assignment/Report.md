@@ -94,7 +94,7 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
 
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
+<img align="center" src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed">
 
 _Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
@@ -102,7 +102,23 @@ Note that for some for criteria commercial_a (commercial area), we accepted dist
 
 
 ## Results
-During whole process, several sub-results and results were generated. In this section, I will show and describe all of them.
+Finally, using methods in chapter above, we got intersection of districts from as good as possible clusters. __9 district, that would be best for building new apartment house for seniors according to given criteria, were retrieved.__ The selected districts are in following table, where also their values for different criteria are shown.
 
-### Data preparation
+district	| nature_a	| industry_a	| nightlife	| foodstores | health	| transport	| commercial_a	| citiziens/km2
+--- | --- | --- | --- | --- | --- | --- | --- | ---
+Braník | 52.6% | 4.1% | 4.0 | 1.3 | 4.9 | 3.7 | 1.9% | 4048
+Hlubočepy | 54.5% | 1.5% | 2.9 | 1.2 | 3.3 | 3.7 | 5.0% | 3663
+Hradčany | 60.8% | 1.5% | 2.6 | 1.7 | 5.1 | 6.4 | 0.7% | 1184
+Kamýk | 61.1% | 0.5% | 5.1 | 3.3 | 5.6 | 4.1 | 3.3% | 7663
+Kobylisy | 69.3% | 2.1% | 7.2 | 3.4 | 8.4 | 6.4 | 0.2% | 8505
+Modřany | 57.0% | 7.4% | 2.9 | 1.5 | 2.7 | 3.1 | 0.3% | 4125
+Střížkov | 76.4% | 2.5% | 9.5 | 1.3 | 12.1 | 3.8 | 0.4% | 7004
+Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
+Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
+
+These districts are also shown in map in following image:
+https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map.jpg
+
+### Selected vs unselected districts
+Also, I did a visual comparsion o
 
