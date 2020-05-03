@@ -102,7 +102,7 @@ Note that for some for criteria commercial_a (commercial area), we accepted dist
 ## Results
 Finally, using methods in chapter above, we got best districts according to given criteria, by finding best possible intersection of clusters of several criteria. __9 district, that would be best for building new apartment house for seniors according to given criteria, were retrieved.__ The selected districts are in following table, where also their values for different criteria are shown.
 
-district	| nature_a*	| industry_a*	| nightlife**	| foodstores** | health**	| transport**	| commercial_a*	| citiziens/km2
+district	| nature_a | industry_a	| nightlife	| foodstores | health | transport	| commercial_a | citiziens/km2
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 Braník | 52.6% | 4.1% | 4.0 | 1.3 | 4.9 | 3.7 | 1.9% | 4048
 Hlubočepy | 54.5% | 1.5% | 2.9 | 1.2 | 3.3 | 3.7 | 5.0% | 3663
@@ -114,13 +114,14 @@ Střížkov | 76.4% | 2.5% | 9.5 | 1.3 | 12.1 | 3.8 | 0.4% | 7004
 Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
 Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 
+_nature_a, industry_a, commercial_a: means how many percent of whole district area is covered by corresponding area. nightlife, foodstores, health, transport: means how many venues of corresponding type are per square kilometer in district.
 
-#####  fdfdf
 These districts are also shown in map in following image:
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map_border.jpg "Districts selected by finding best possible intersection")
 _Districts selected by finding best possible intersection_       
 
-          
 ### Selected vs unselected districts
-Also, I did a visual comparsion o
+However, to tell how good are numbers for each district and each criteria, we must compare these 9 selected districts, with the rest of districts (103 unselected districts). For that I created several charts, where each chart X axis shows individual districts sorted by given criteria, from lowest to highest values. Y axis shows actual value of that criteria for given district on X axis. Finally, orange points on X axis, shows whether the corresponding district was selected or not.
 
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical_borders.jpg "Distributions of different criteria for each district, with selected districts")
+_Districts of all criteria values across all districts, showing which districts were selected_
