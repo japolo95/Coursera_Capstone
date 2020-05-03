@@ -94,12 +94,11 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
 
-<img align="center" src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed">
+<img align="middle" src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed">
 
 _Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
 Note that for some for criteria commercial_a (commercial area), we accepted districts from all clusters. This parameter has low priority as mentioned above. On the other hand, for criteria with high priority, such as nightlife (number of nightlife venues per square kilometer), nature_a (nature area), we searched for districts only in much fewer clusters (in other words, worse clusters were not accepted).
-
 
 ## Results
 Finally, using methods in chapter above, we got intersection of districts from as good as possible clusters. __9 district, that would be best for building new apartment house for seniors according to given criteria, were retrieved.__ The selected districts are in following table, where also their values for different criteria are shown.
