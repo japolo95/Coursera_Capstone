@@ -93,7 +93,7 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   3. commercial area - this is only nice to have, but really not critical
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters_borders2.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters_borders.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
 
 _Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
@@ -114,6 +114,8 @@ Střížkov | 76.4% | 2.5% | 9.5 | 1.3 | 12.1 | 3.8 | 0.4% | 7004
 Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
 Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 
+
+#####  fdfdf
 These districts are also shown in map in following image:
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map_border.jpg "Districts selected by finding best possible intersection")
 _Districts selected by finding best possible intersection_       
