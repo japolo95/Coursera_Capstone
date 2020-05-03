@@ -41,6 +41,7 @@ _**OpenStreetMaps (OSM) can return small nodes, that defines small polygons of d
 ## Methodology
 Methodology was splitted into two parts: Processing data to format that we want, and clustering districts according to each given parameter.
 
+### First part
 __For the first part__, there was three data sources: Wikipedia, OpenStreetMap, and Foursquare.
 
 From Wikipedia, we could obtain a list of districts in Prague, from [this link](https://cs.wikipedia.org/wiki/Seznam_katastr%C3%A1ln%C3%ADch_%C3%BAzem%C3%AD_v_Praze). We parsed it using pandas and we also used information about population density in each district, instead of just using district's name.
@@ -49,6 +50,7 @@ From OpenStreetMaps, we got list of points that defines each district's shape on
 
 From Foursquare, we were able to get number of venues in given rectanlge on map, however, for our purposes, we needed to limit results only to venues inside district polygon, because a district is usually not just rectangle on map, but more complicated polygon. We used  [Shapely](https://shapely.readthedocs.io/en/latest/manual.html), just the same way as in OpenStreetMaps case, to keep only venues that are inside each district's polygon. Then we converted numbers of venues to their density per square kilometer, in each district.
 
+### Second part
 __For the second part__, I decided to cluster districts multiple times, each time by different criteria. The criteria were:
   - average number of foodstores in each district per square kilometer
   - average number of health venues (such as hospitals, pharmacies) in each district per square kilometer
@@ -58,13 +60,15 @@ __For the second part__, I decided to cluster districts multiple times, each tim
   - percentage of each district area covered by industrial zones
   - percentage of each district area covered by commercial zones
   - population density in each district per square kilometer
-  
+
+#### Clustering
 Note that districts were not clustered by all these criteria together, instead I tried to group them by each criteria separatedly. I also tried to do clustering for multiple or all criteria together, but that brought much worse results, as there are only 112 districts in Prague.
 
 Instead I firstly clustered by each criteria separatedly. For own clustering, I used [Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and for determining ideal number of clusters for each criteria, I used [Silhouette Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), where several possible numbers of clusters were tried, and the one with best Silhouette score was used (this could be different for each criteria).
 
 Then I took best clusters of each criteria (what _best_ means is defined in [Data section](#Data) of this report and tried to find the intersection of it, in other words, tried to find districts, that are in the best cluster for all the criteria. Unfortunately (but as expected) there was no such district.
 
+#### Findings best possible intersection between clusters
 In that situation, we could simply say that also districts in _worse_ clusters are accepted, however, as some criteria are more important than other, I decided to create a function, which objective will be to find intersection of districts, that are in best possible clusters where this intersection exists, taking into account that some features are more important than others. 
 
 For example tell the function, that criteria A is more important than criteria B. The function took that into account and accepted some worse clusters for all the criteria, while prioritizing the A criteria over B (that means, trying to first find intersection using worse clusters from B, than from A).
@@ -79,3 +83,4 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
 Using this function, I was able to get some reasonable result.
 
 ## Results
+Results
