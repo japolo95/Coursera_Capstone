@@ -95,8 +95,8 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
 
 <p align="center">
-<img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed"></p>
-_Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
+<img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed"></p><i>
+Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed</i>
 
 Note that for some for criteria commercial_a (commercial area), we accepted districts from all clusters. This parameter has low priority as mentioned above. On the other hand, for criteria with high priority, such as nightlife (number of nightlife venues per square kilometer), nature_a (nature area), we searched for districts only in much fewer clusters (in other words, worse clusters were not accepted).
 
