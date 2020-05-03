@@ -114,7 +114,7 @@ Střížkov | 76.4% | 2.5% | 9.5 | 1.3 | 12.1 | 3.8 | 0.4% | 7004
 Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
 Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 
-_columns nature_a, industry_a, commercial_a: means how many percent of whole district area is covered by corresponding area. Column nightlife, foodstores, health, transport: means how many venues of corresponding type are per square kilometer in district.
+_columns nature_a, industry_a, commercial_a: means how many percent of whole district area is covered by corresponding area. Column nightlife, foodstores, health, transport: means how many venues of corresponding type are per square kilometer in district._
 
 These districts are also shown in map in following image:
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map_border.jpg "Districts selected by finding best possible intersection")
