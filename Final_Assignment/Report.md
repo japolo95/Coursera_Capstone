@@ -116,6 +116,7 @@ Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
 Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 
 _*percentage of whole district area_
+
 _**count per square kilometer_
 
 These districts are also shown in map in following image:
