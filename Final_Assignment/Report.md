@@ -41,16 +41,22 @@ _**OpenStreetMaps (OSM) can return small nodes, that defines small polygons of d
 ## Methodology
 Methodology was splitted into two parts: Processing data to format that we want, and clustering districts according to each given parameter.
 
-### First part
+### Preprocessing data
 __For the first part__, there was three data sources: Wikipedia, OpenStreetMap, and Foursquare.
 
 From Wikipedia, we could obtain a list of districts in Prague, from [this link](https://cs.wikipedia.org/wiki/Seznam_katastr%C3%A1ln%C3%ADch_%C3%BAzem%C3%AD_v_Praze). We parsed it using pandas and we also used information about population density in each district, instead of just using district's name.
 
 From OpenStreetMaps, we got list of points that defines each district's shape on map. We also used OSM for getting information about different land usages in each district. Because it is not possible to query OSM directly for land usage in given polygon, only in given rectangle, we used bounding box of each district, and when we recieved data from OSM, we used [Shapely](https://shapely.readthedocs.io/en/latest/manual.html) library, which has function for determining whether point is inside given polygon. Using this function, we analyzed land usage only in district polygon, not in whole bounding box. Then, we used [Shoelace algorithm](https://en.wikipedia.org/wiki/Shoelace_formula) to get size of each land usage type in each district and also size of whole district. Finally, we converted these values to percentages, so that we had information _how many % of land in each district was covered by different types of zones, like parks, industry, or commercial zones_.
 
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/maps1_sbs.jpg "Districts polygons downloaded using OpenStreetMaps (left image) and Types of land use in Vysehrad district (right image)")
+_Visualization of districts borders downloaded using OpenStreetMaps (left image), Types of land use in Vysehrad district (right image) - orange: borders of Vysehrad district, green: nature areas, gray: residential and commercial areas, black: industrial areas)_
+
 From Foursquare, we were able to get number of venues in given rectanlge on map, however, for our purposes, we needed to limit results only to venues inside district polygon, because a district is usually not just rectangle on map, but more complicated polygon. We used  [Shapely](https://shapely.readthedocs.io/en/latest/manual.html), just the same way as in OpenStreetMaps case, to keep only venues that are inside each district's polygon. Then we converted numbers of venues to their density per square kilometer, in each district.
 
-### Second part
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/foodstores_vinohrady.jpg "Vinohrady district polygon downloaded using OpenStreetMaps with foodstores shown in it, downloaded using Foursquare")
+_Vinohrady district polygon downloaded using OpenStreetMaps with foodstores shown in it, downloaded using Foursquare_
+
+### Clustering data and finding results
 __For the second part__, I decided to cluster districts multiple times, each time by different criteria. The criteria were:
   - average number of foodstores in each district per square kilometer
   - average number of health venues (such as hospitals, pharmacies) in each district per square kilometer
@@ -83,4 +89,7 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
 Using this function, I was able to get some reasonable result.
 
 ## Results
-Results
+During whole process, several sub-results and results were generated. In this section, I will show and describe all of them.
+
+### Data preparation
+
