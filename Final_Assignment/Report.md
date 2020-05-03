@@ -125,3 +125,7 @@ However, to tell how good are numbers for each district and each criteria, we mu
 
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical.jpg "Distributions of different criteria for each district, with selected districts")
 _Districts of all criteria values across all districts, showing which districts were selected_
+
+Let's discuss individual criteria results:
+ - _Foodstores per square kilometer_: We can see that each of selected districts has some foodstores. Also from chart and table above we can tell that selected districts has sufficient number of foodstores per square kilometer, although that non of them had more than 3.4 foodstores per square kilometer. However, no district also had less than 1.2 foodstores per square kilometer, which is good.
+ - _Nightlife venues per square kilometer_: Here if you take a look at the chart, it looks like selected districts are on exactly opposite side than we wanted. That's unfortunately true, because as we also have conditions to have enough public transport stations, foodstroes, and healthcare venues, nightlife venues goes with them too naturally. However, there is also some good news about the result: If you check the values of nightlife, you can see that they are quite consistent, except (approximately) last 6 districts, that have much higher values and the algorithm was able to avoid these districts.
