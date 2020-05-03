@@ -116,7 +116,10 @@ Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
 Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 
 These districts are also shown in map in following image:
+
 <p align='center"><img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map.jpg" alt="Districts selected by finding best possible intersection"></p>
+          
+          
 _Best district that were found according to given criteria_
           
 ### Selected vs unselected districts
