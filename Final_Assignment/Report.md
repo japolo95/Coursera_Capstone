@@ -94,8 +94,7 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
 
-<div style="text-align: center">
-<img src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed"></div>
+<img style="left:0;right:0;margin:auto;" src="https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters.jpg" alt="Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed">
 
 _Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
