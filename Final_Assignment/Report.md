@@ -89,8 +89,9 @@ The function uses following formula: `f(x,t) = (min(x/10,1))*t` where _x_ is pri
 
 I decided to set priorities (_x_ value in the formula) for each feature as following:
   1. nature area, nightlife, industry area - these affect quality of life all the time and most directly (general look of the district,  air and sound pollution)
-  2. foodstores, health, transport, citiziens/km2 - these also affect quality of life, but not all the time, except the citiziens/km2, but for that it is still only required not to be extreme (like city center)
-  3. commercial area - this is only nice to have, but really not critical
+  2. citiziens/km2 - this is similar case as point 1. When there is too many people per square kilometer, then the district is going to be noisy. However, unlike factors in point 1, this is still little less negative, because people around you are basically not negative factor. Only if it reaches some too high number.
+  3. foodstores, health, transport, citiziens/km2 - these also affect quality of life, but not all the time, as usually it is enough when number of these venues, is higher than zero per square kilometer.
+  4. commercial area - this is only nice to have, but really not critical
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters_borders.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
