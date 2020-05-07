@@ -51,7 +51,7 @@ From OpenStreetMaps, we got list of points that defines each district's shape on
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/maps1_sbs.jpg "Districts polygons downloaded using OpenStreetMaps (left image) and Types of land use in Vysehrad district (right image)")
 _Visualization of districts borders downloaded using OpenStreetMaps (left image), Types of land use in Vysehrad district (right image) - orange: borders of Vysehrad district, green: nature areas, gray: residential and commercial areas, black: industrial areas)_
 
-From Foursquare, we were able to get number of venues in given rectanlge on map, however, for our purposes, we needed to limit results only to venues inside district polygon, because a district is usually not just rectangle on map, but more complicated polygon. We used  [Shapely](https://shapely.readthedocs.io/en/latest/manual.html), just the same way as in OpenStreetMaps case, to keep only venues that are inside each district's polygon. Then we converted numbers of venues to their density per square kilometer, in each district.
+From Foursquare there were two problems: First one, there is maximum 50 venues returned in API call which was not sometimes enough, because in reality, there could be hundreds of venues in some districts. The other problem is, that Foursquare can look for venues only in rectangle on a map, not in custom shape. And as we know, no district has rectangle shape. The first problem was solved by subdividing each district into 16 parts, which were enough. However, that also made whole process of gathering Foursquare data much slower and also using much more calls. The second problem was solved similarly like with OpenStreetMaps data. We used  [Shapely](https://shapely.readthedocs.io/en/latest/manual.html), just the same way as in OpenStreetMaps case, to keep only venues that are inside each district's polygon. Then we converted numbers of venues to their density per square kilometer, in each district.
 
 ![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/foodstores_vinohrady.jpg "Vinohrady district polygon downloaded using OpenStreetMaps with foodstores shown in it, downloaded using Foursquare")
 _Vinohrady district polygon downloaded using OpenStreetMaps with foodstores shown in it, downloaded using Foursquare_
@@ -105,15 +105,15 @@ Finally, using methods in chapter above, we got best districts according to give
 
 district	| nature_a | industry_a	| nightlife	| foodstores | health | transport	| commercial_a | citiziens/km2
 --- | --- | --- | --- | --- | --- | --- | --- | ---
-Braník | 52.6% | 4.1% | 4.0 | 1.3 | 4.9 | 3.7 | 1.9% | 4048
-Hlubočepy | 54.5% | 1.5% | 2.9 | 1.2 | 3.3 | 3.7 | 5.0% | 3663
-Hradčany | 60.8% | 1.5% | 2.6 | 1.7 | 5.1 | 6.4 | 0.7% | 1184
-Kamýk | 61.1% | 0.5% | 5.1 | 3.3 | 5.6 | 4.1 | 3.3% | 7663
-Kobylisy | 69.3% | 2.1% | 7.2 | 3.4 | 8.4 | 6.4 | 0.2% | 8505
-Modřany | 57.0% | 7.4% | 2.9 | 1.5 | 2.7 | 3.1 | 0.3% | 4125
-Střížkov | 76.4% | 2.5% | 9.5 | 1.3 | 12.1 | 3.8 | 0.4% | 7004
-Veleslavín | 60.2% | 11.8% | 5.9 | 3.0 | 6.4 | 6.4 | 0.4% | 4820
-Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
+Braník | 52.6% | 4.1% | 6.8 | 1.3 | 8.4 | 4.1 | 1.9% | 4048
+Břevnov | 57.2% | 1.0% | 11.0 | 1.9 | 13.7 | 4.6 | 0.4% | 4569
+Dejvice | 65.4% | 0.7% | 5.8 | 1.6 | 6.8 | 5.4 | 0.3% | 3138
+Hlubočepy | 54.5% | 1.5% | 4.7 | 1.2 | 4.8 | 4.8 | 5.0% | 3663
+Hradčany | 60.8% | 1.5% | 13.7 | 1.7 | 6.8 | 6.4 | 0.7% | 1184
+Košíře | 62.3% | 6.3% | 8.2 | 1.8 | 5.4 | 3.6 | 0.2% | 4525
+Libeň | 50.9% | 7.8% | 15.4 | 2.2 | 9.5 | 3.6 | 2.0% | 4493
+Modřany | 57.0% | 7.4% | 4.8 | 1.5 | 7.1 | 3.1 | 0.3% | 4125
+Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 7.3 | 2.4 | 5.8% | 3106
 
 _columns nature_a, industry_a, commercial_a: means how many percent of whole district area is covered by corresponding area. Column nightlife, foodstores, health, transport: means how many venues of corresponding type are per square kilometer in district._
 
