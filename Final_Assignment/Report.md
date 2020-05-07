@@ -67,7 +67,7 @@ __For the second part__, I decided to cluster districts multiple times, each tim
   - percentage of each district area covered by commercial zones
   - population density in each district per square kilometer
 
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_dataset_example.jpg "Screen of final, preprocessed dataset, loaded in Pandas DataFrame. Note that nightlife, foodstores, health, and transport, shows number of corresponding venues per square kilometer in given district")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_dataset_example_2_border.jpg "Screen of final, preprocessed dataset, loaded in Pandas DataFrame. Note that nightlife, foodstores, health, and transport, shows number of corresponding venues per square kilometer in given district")
 _Screen of final, preprocessed dataset, loaded in Pandas DataFrame. Note that nightlife, foodstores, health, and transport, shows number of corresponding venues per square kilometer in given district_
 
 #### Clustering
@@ -75,7 +75,7 @@ Note that districts were not clustered by all these criteria together, instead I
 
 Instead I firstly clustered by each criteria separatedly. For own clustering, I used [Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html), and for determining ideal number of clusters for each criteria, I used [Silhouette Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html), where several possible numbers of clusters were tried, and the one with best Silhouette score was used (this could be different for each criteria). Results of clustering is visualized by boxplots in image below.
 
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/boxplots_all.jpg "Boxplots of values distributions in each cluster for each feature")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/boxplots_all_2.jpg "Boxplots of values distributions in each cluster for each feature")
 _Boxplots of values distributions in each cluster for each feature_
 
 Then I took best clusters of each criteria (what _best_ means is defined in [Data section](#Data) of this report and tried to find the intersection of it, in other words, tried to find districts, that are in the best cluster for all the criteria. Unfortunately (but as expected) there was no such district.
@@ -94,7 +94,7 @@ I decided to set priorities (_x_ value in the formula) for each feature as follo
   4. commercial area - this is only nice to have, but really not critical
   
 Using this function, I was able to get some reasonable result. Accepted clusters for each criteria are shown in following image.
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters_borders.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_allowed_clusters_2_border.jpg "Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed")
 
 _Percentage and numbers of clusters that we can search in for the districts. Clusters are sorted from best, to worst. 100% means that we give up using that criteria completely, as districts from all clusters are allowed_
 
@@ -118,13 +118,13 @@ Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 6.4 | 2.4 | 5.8% | 3106
 _columns nature_a, industry_a, commercial_a: means how many percent of whole district area is covered by corresponding area. Column nightlife, foodstores, health, transport: means how many venues of corresponding type are per square kilometer in district._
 
 These districts are also shown in map in following image:
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map_border.jpg "Districts selected by finding best possible intersection")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map2_border.jpg "Districts selected by finding best possible intersection")
 _Districts selected by finding best possible intersection_       
 
 ### Selected vs unselected districts
 However, to tell how good are numbers for each district and each criteria, we must compare these 9 selected districts, with the rest of districts (103 unselected districts). For that I created several charts, where each chart X axis shows individual districts sorted by given criteria, from lowest to highest values. Y axis shows actual value of that criteria for given district on X axis. Finally, orange points on X axis, shows whether the corresponding district was selected or not.
 
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical.jpg "Distributions of different criteria for each district, with selected districts")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical2_border.jpg "Distributions of different criteria for each district, with selected districts")
 _Districts of all criteria values across all districts, showing which districts were selected_
 
 Let's discuss individual criteria results:
