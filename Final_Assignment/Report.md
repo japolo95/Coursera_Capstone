@@ -124,7 +124,7 @@ _Districts selected by finding best possible intersection_
 ### Selected vs unselected districts
 However, to tell how good are numbers for each district and each criteria, we must compare these 9 selected districts, with the rest of districts (103 unselected districts). For that I created several charts, where each chart X axis shows individual districts sorted by given criteria, from lowest to highest values. Y axis shows actual value of that criteria for given district on X axis. Finally, orange points on X axis, shows whether the corresponding district was selected or not.
 
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical2_border.jpg "Distributions of different criteria for each district, with selected districts")
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical2.jpg "Distributions of different criteria for each district, with selected districts")
 _Districts of all criteria values across all districts, showing which districts were selected_
 
 Let's discuss individual criteria results:
