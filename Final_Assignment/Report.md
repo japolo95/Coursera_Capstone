@@ -5,6 +5,7 @@ This is a project for Coursera Applied Data Science Capstone course. It show's m
   - [Methodology](#Methodology)
   - [Results](#Results)
   - [Discussion](#Discussion)
+  - [Conclusion](#Conclusion)
 
 <h2 id="intro">Introduction/Business Problem </h2>
 Problem that I am trying to solve, is to determine which districts of given city (I selected Prague, in CZ) are most suitable for real estate development copmany, that wants to plan and build apartment house for seniors.
@@ -152,3 +153,8 @@ We can say that main observations are following:
  - main help of machine learning in this project was using of clustering, which does not have to be obvious on first look. But clustering helped us a lot, to set exact borders for values distributions for different criteria in different districts (see box plots above)
  
 ## Conclusion
+Selecting ideal districts in Prague for building new apartment house for seniors is not as easy task as it can look.  It is not very simple to balance som factors, that goes each against other. Currently, I mean that facts, that ideal district for seniors should be calm and full of nature, but still should has lot of foodstores, pharmacies, and public transport venus, while not having very high population density, industral or commercial zones, and lot of hotels, bars, and other nightlife venues.
+
+In this project, I was able to identify districts that have all these conditions balanced, so they provide enough venues, they have nice environment, and they are not very overcrowded or noisy.
+
+For this task, clustering algorithm (Agglomerative Clustering) was used, to determine how individual criteria values along all districts  are distributed and should be grouped. Then found intersection of districts that were in those clusters, that correspond with our given criteria as most as possible. Also analysis, of distributions of all criteria was done, so that we could see whether we selected districts that we wanted to select.
