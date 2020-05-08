@@ -120,14 +120,14 @@ Vokovice | 79.8% | 0.5% | 5.1 | 1.5 | 7.3 | 2.4 | 5.8% | 3106
 _columns nature_a, industry_a, commercial_a: means how many percent of whole district area is covered by corresponding area. Column nightlife, foodstores, health, transport: means how many venues of corresponding type are per square kilometer in district._
 
 These districts are also shown in map in following image:
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map2_border.jpg "Districts selected by finding best possible intersection")
-_Districts selected by finding best possible intersection_       
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/final_districts_map2_names_border.jpg "Districts selected by finding best possible intersection")
+_Districts selected by finding best possible intersection. The red circle is (approximately) city center_
 
 ### Selected vs unselected districts
 However, to tell how good are numbers for each district and each criteria, we must compare these 9 selected districts, with the rest of districts (103 unselected districts). For that I created several charts, where each chart X axis shows individual districts sorted by given criteria, from lowest to highest values. Y axis shows actual value of that criteria for given district on X axis. Finally, orange points on X axis, shows whether the corresponding district was selected or not.
 
-![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical2.jpg "Distributions of different criteria for each district, with selected districts")
-_Districts of all criteria values across all districts, showing which districts were selected_
+![alt text](https://github.com/japolo95/Coursera_Capstone/blob/master/Final_Assignment/distributions_all_vertical2.jpg "Distributions of different criteria for each district, with selected districts. Numbers are without clustering (mapped from clusters back to original numbers)")
+_Districts of all criteria values across all districts, showing which districts were selected. Purple line is city border_
 
 Let's discuss individual criteria results:
  - _Foodstores per square kilometer_: We can see that each of selected districts has some foodstores. Also from chart and table above we can tell that selected districts has sufficient number of foodstores per square kilometer, although that non of them had more than 2.2 foodstores per square kilometer. However, no district also had less than 1.2 foodstores per square kilometer, which is good.
@@ -138,4 +138,17 @@ Let's discuss individual criteria results:
  - _Commercial area percentage of landuse_: This had very low priority, as it is mostly neutral factor. So some of the selected districts have relatively (comparing to unselected districts) high area percetnage used by commercial areas if we compare with other districts. On the other hand, absolute values (not absolute area size, but absolute value of that factor) are really low. No selected district had percentage of commercial area higher than 5.8%, and in whole dataset, no value were higher than approximately 14%.
  - _Citiziens/km2 (population density)_: Only districts with population density lower than 4569 people/km2 were selected. This value is interesting especially in comparison with other (unselected) districts, where we can see (on the distribution charts) that worst selected district (orange point on most right of x axis) is still not in the area where values are getting much higher.
  
-Now we 
+Now we move to discussion section, where results are discussed
+
+## Discussion
+As we can see from map in result section, none of the selected districts is exactly in city center, except Hradčany. That district is quite specific, because there is main city castle, which actually covers quite large part of the district (that's because the whole castle complex is large). Most of the selected districts are placed somewhere between city center, and it's suburb. From map, we can directly see, that center probably wont offer enough nature areas like parks or gardens, because houses density is huge. Also, suburubs are usually close to land used for agriculture (fields), and this land is not counted as nature area (because it is not accessible for walks or relaxation).
+
+If we take a look at distributions of nightlife venues, foodstores, health venues, and transport venues, we can see that all of them copy similar non-linear distribution (looks closer to exponential), in other words, many districts have low values, and then a few of all districts have very high values. Also, if we check the selected districts on these charts (orange dots on x axis) we can see that they are distributed similarly in all the venues criteria. Usually, selected districts starts in 2/3 of x axis, and ends approximately 85% of x axis, where y values starts to drastically increase. From this we can tell, that number of venues of all types is very connected, that means, there can be lot of venues of all types, or only few venues of all types, but not lot of venues of one type, and only few venues of another type. This actually makes sense, because in real world numbers for different types of venues are balanced in a district. It also shows us, that we were able to find compromise, that enough useful venues (for seniors) such as foodstores or bus stations are kept, but still selected districts are not those most noisy (selected districts on distribution charts ends before number of nightlife venues starts to grow exponentially).
+
+We can say that main observations are following:
+ - it is not possible to find ideal district, where number of foodstores, health venues, and transport venues is high, while number of nightlife venues is low. Numbers of all types of venues are heavily connected, thus we have to do compromises. In case of useful vs. noisy venues, the districts with __mid to high number of venues__ (relatively in comparison with unselected districts) were selected.
+ - on the other hand, these districts dont have extreme population density.
+ - the conditions, that selected districts should have enough nature areas and not much industrial ones were satisfied.
+ - main help of machine learning in this project was using of clustering, which does not have to be obvious on first look. But clustering helped us a lot, to set exact borders for values distributions for different criteria in different districts (see box plots above)
+ 
+## Conclusion
