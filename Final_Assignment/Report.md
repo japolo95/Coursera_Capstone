@@ -3,6 +3,8 @@ This is a project for Coursera Applied Data Science Capstone course. It show's m
   - [Introduction/Business Problem](#intro)
   - [Data](#Data)
   - [Methodology](#Methodology)
+  - [Results](#Results)
+  - [Discussion](#Discussion)
 
 <h2 id="intro">Introduction/Business Problem </h2>
 Problem that I am trying to solve, is to determine which districts of given city (I selected Prague, in CZ) are most suitable for real estate development copmany, that wants to plan and build apartment house for seniors.
@@ -135,3 +137,5 @@ Let's discuss individual criteria results:
  - _Health and transport venues per square kilometer_: These are also good, as we can see from their distributions. Not the best districts were selected, but a well balanced result was found, so there are some venues in each selected district.
  - _Commercial area percentage of landuse_: This had very low priority, as it is mostly neutral factor. So some of the selected districts have relatively (comparing to unselected districts) high area percetnage used by commercial areas if we compare with other districts. On the other hand, absolute values (not absolute area size, but absolute value of that factor) are really low. No selected district had percentage of commercial area higher than 5.8%, and in whole dataset, no value were higher than approximately 14%.
  - _Citiziens/km2 (population density)_: Only districts with population density lower than 4569 people/km2 were selected. This value is interesting especially in comparison with other (unselected) districts, where we can see (on the distribution charts) that worst selected district (orange point on most right of x axis) is still not in the area where values are getting much higher.
+ 
+Now we 
